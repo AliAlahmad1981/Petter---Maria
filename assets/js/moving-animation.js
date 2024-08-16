@@ -232,12 +232,12 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
     const comment = commentInput.value.trim();
 
     if (files.length === 0) {
-        alert('Please select at least one image to upload.');
+        // alert('Please select at least one image to upload.');
         return;
     }
 
     if (comment === '') {
-        alert('Please write a comment.');
+        // alert('Please write a comment.');
         return;
     }
 
@@ -245,7 +245,7 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
     
     for (const file of files) {
         if (!file.type.startsWith('image/')) {
-            alert('Please upload only image files.');
+            // alert('Please upload only image files.');
             continue;
         }
 
