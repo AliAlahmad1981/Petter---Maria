@@ -94,21 +94,20 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
     const files = fileInput.files;
     const comment = commentInput.value.trim();
 
-    if (files.length === 0) {
-        alert('Please select at least one image to upload.');
-        return;
-    }
+    // if (files.length === 0) {
+    //     alert('Please select at least one image to upload.');
+    //     return;
+    // }
 
-    if (comment === '') {
-        alert('Please write a comment.');
-        return;
-    }
+    // if (comment === '') {
+    //     alert('Please write a comment.');
+    //     return;
+    // }
 
     const storedData = JSON.parse(localStorage.getItem('galleryData')) || [];
     
     Array.from(files).forEach(file => {
         if (!file.type.startsWith('image/')) {
-            alert('Please upload only image files.');
             return;
         }
 
