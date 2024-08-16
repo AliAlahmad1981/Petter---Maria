@@ -137,7 +137,7 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
     }
 
     if (comment === '') {
-        alert('Please write a comment.');
+        // alert('Please write a comment.');
         return;
     }
 
