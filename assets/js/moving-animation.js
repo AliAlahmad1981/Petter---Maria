@@ -104,97 +104,13 @@ function renderGallery() {
 
     const storedData = JSON.parse(localStorage.getItem('galleryData')) || [];
     
-    for (const item of storedData) {
+    storedData.forEach((item, index) => {
         const galleryItem = document.createElement('div');
         galleryItem.classList.add('gallery-item');
         
         const img = document.createElement('img');
         img.src = item.image;
-
-        const commentDiv = document.createElement('div');
-        commentDiv.classList.add('comment');
-        commentDiv.textContent = item.comment;
-
-        galleryItem.appendChild(img);
-        galleryItem.appendChild(commentDiv);
-
-        gallery.appendChild(galleryItem);
-    }
-}
-
-// Event listener for the form submission
-document.getElementById('uploadForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const fileInput = document.getElementById('fileInput');
-    const commentInput = document.getElementById('commentInput');
-    const files = fileInput.files;
-    const comment = commentInput.value.trim();
-
-    if (files.length === 0) {
-        // alert('Please select at least one image to upload.');
-        return;
-    }
-
-    if (comment === '') {
-        // alert('Please write a comment.');
-        return;
-    }
-
-    const storedData = JSON.parse(localStorage.getItem('galleryData')) || [];
-    
-    for (const file of files) {
-        if (!file.type.startsWith('image/')) {
-            // alert('Please upload only image files.');
-            continue;
-        }
-
-        const reader = new FileReader();
         
-        reader.onload = function(e) {
-            const newItem = {
-                image: e.target.result,
-                comment: comment
-            };
-
-            storedData.push(newItem);
-            localStorage.setItem('galleryData', JSON.stringify(storedData));
-            renderGallery();
-        };
-        
-        reader.readAsDataURL(file);
-    }
-
-    // Clear the form
-    fileInput.value = '';
-    commentInput.value = '';
-});
-
-// Initial render of gallery on page load
-window.onload = function() {
-    renderGallery();
-};
-
-
-
-// scripts.js
-
-// Function to render images and comments from localStorage
-function renderGallery() {
-    const gallery = document.getElementById('gallery');
-    gallery.innerHTML = ''; // Clear previous images and comments
-
-    const storedData = JSON.parse(localStorage.getItem('galleryData')) || [];
-    
-    for (let i = 0; i < storedData.length; i++) {
-        const item = storedData[i];
-        
-        const galleryItem = document.createElement('div');
-        galleryItem.classList.add('gallery-item');
-        
-        const img = document.createElement('img');
-        img.src = item.image;
-
         const commentDiv = document.createElement('div');
         commentDiv.classList.add('comment');
         commentDiv.textContent = item.comment;
@@ -203,7 +119,7 @@ function renderGallery() {
         deleteBtn.classList.add('delete-btn');
         deleteBtn.textContent = 'X';
         deleteBtn.onclick = () => {
-            deleteItem(i);
+            deleteItem(index);
         };
 
         galleryItem.appendChild(img);
@@ -211,7 +127,7 @@ function renderGallery() {
         galleryItem.appendChild(deleteBtn);
 
         gallery.appendChild(galleryItem);
-    }
+    });
 }
 
 // Function to delete an item from localStorage
@@ -232,21 +148,21 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
     const comment = commentInput.value.trim();
 
     if (files.length === 0) {
-        // alert('Please select at least one image to upload.');
+        alert('Please select at least one image to upload.');
         return;
     }
 
     if (comment === '') {
-        // alert('Please write a comment.');
+        alert('Please write a comment.');
         return;
     }
 
     const storedData = JSON.parse(localStorage.getItem('galleryData')) || [];
     
-    for (const file of files) {
+    Array.from(files).forEach(file => {
         if (!file.type.startsWith('image/')) {
-            // alert('Please upload only image files.');
-            continue;
+            alert('Please upload only image files.');
+            return;
         }
 
         const reader = new FileReader();
@@ -263,7 +179,7 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
         };
         
         reader.readAsDataURL(file);
-    }
+    });
 
     // Clear the form
     fileInput.value = '';
