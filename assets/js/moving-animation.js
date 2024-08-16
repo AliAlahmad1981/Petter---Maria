@@ -42,60 +42,7 @@ $(window).on('mousemove click', function (e) {
 
 floatingBg();
 
-// scripts.js
-// document.getElementById('uploadForm').addEventListener('submit', function(event) {
-//     event.preventDefault();
 
-//     const fileInput = document.getElementById('fileInput');
-//     const commentInput = document.getElementById('commentInput');
-//     const gallery = document.getElementById('gallery');
-    
-//     const files = fileInput.files;
-//     const comment = commentInput.value.trim();
-
-//     if (files.length === 0) {
-//         alert('Please select at least one image to upload.');
-//         return;
-//     }
-
-//     if (comment === '') {
-//         alert('Please write a comment.');
-//         return;
-//     }
-
-//     for (const file of files) {
-//         if (!file.type.startsWith('image/')) {
-//             alert('Please upload only image files.');
-//             continue;
-//         }
-
-//         const reader = new FileReader();
-        
-//         reader.onload = function(e) {
-//             const galleryItem = document.createElement('div');
-//             galleryItem.classList.add('gallery-item');
-            
-//             const img = document.createElement('img');
-//             img.src = e.target.result;
-
-//             const commentDiv = document.createElement('div');
-//             commentDiv.classList.add('comment');
-//             commentDiv.textContent = comment;
-
-//             galleryItem.appendChild(img);
-//             galleryItem.appendChild(commentDiv);
-
-//             gallery.appendChild(galleryItem);
-//         };
-        
-//         reader.readAsDataURL(file);
-//     }
-
-//     // Clear the form
-//     fileInput.value = '';
-//     commentInput.value = '';
-// });
-// scripts.js
 
 // Function to render images and comments from localStorage
 function renderGallery() {
