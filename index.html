@@ -29,7 +29,7 @@
 </head>
 
 <body>
-
+    
     <!-- start page-wrapper  -->
     <div class="page-wrapper">
         <!-- start preloader -->
@@ -82,7 +82,19 @@
                                     </div> -->
                                 </div>
                             </div>
-                            <div class="wpo-event-text">
+                            <!-- <div class="photo-upload-container">
+                                <h1>Upload Your Photos and Send Your Congratulations</h1>
+                                <form id="photoForm">
+                                    <input type="file" id="fileInput" accept="image/*" multiple>
+                                    <button type="submit">Upload Photos</button>
+                                </form>
+                                <div id="photoGallery"></div>
+                                <div class="congratulations-message">
+                                    <h2>Congratulations to Petter & Maria!</h2>
+                                    <p>We are excited to celebrate with you on August 17, 2024. May your day be filled with joy and love!</p>
+                                </div>
+                            </div> -->
+                            <!-- <div class="wpo-event-text">
                                 <ul>
                                     <li class="wow fadeInUp" data-wow-duration="1000ms">lördag, 17 Aug. 2024 <br>
                                         1:00 PM – 2:30 PM</li>
@@ -92,6 +104,22 @@
                                             href="">See
                                             Location</a></li>
                                 </ul>
+                            </div> -->
+                            <div class="container">
+                                <header>
+                                    <h1>Share Your Photos and Comments</h1>
+                                </header>
+                                <main>
+                                    <form id="uploadForm">
+                                        <input type="file" id="fileInput" accept="image/*" multiple>
+                                        <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
+                                        <button type="submit">Upload Photo and Comment</button>
+                                    </form>
+                                    <div id="gallery" class="gallery"></div>
+                                </main>
+                                <footer>
+                                    <p>&copy; 2024 Wedding Celebration. All rights reserved.</p>
+                                </footer>
                             </div>
                         </div>
                     </div>
@@ -140,6 +168,7 @@
     <script src="assets/js/tilt.jquery.min.js"></script>
     <!-- Custom script for this template -->
     <script src="assets/js/script.js"></script> 
+    
  
         
 </body>
